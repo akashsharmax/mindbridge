@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gradient-brand: linear-gradient(135deg, #4a6cf7 0%, #7c3aed 100%);
+    --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    --gradient-calm: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --glow-brand: 0 0 30px rgba(74, 108, 247, 0.3);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #252840 transparent;
+  }
+
+  body {
+    @apply bg-slate-950 text-white font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #252840;
+    border-radius: 3px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #4a6cf7;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-hover {
+    @apply glass hover:bg-white/[0.08] hover:border-white/20 transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-medium px-5 py-2.5 rounded-xl
+           transition-all duration-200 hover:shadow-lg hover:shadow-brand-500/25
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-slate-400 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg
+           transition-all duration-200 font-medium;
+  }
+
+  .input-field {
+    @apply w-full bg-surface-600 border border-white/10 rounded-xl px-4 py-3
+           text-white placeholder-slate-500 focus:outline-none focus:border-brand-500
+           focus:ring-2 focus:ring-brand-500/20 transition-all duration-200;
+  }
+
+  .card {
+    @apply glass rounded-2xl p-6;
+  }
+
+  .emotion-badge {
+    @apply text-xs font-medium px-3 py-1 rounded-full capitalize;
+  }
+
+  .page-title {
+    @apply text-3xl md:text-4xl font-bold text-white;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-slate-500;
+  }
+}
+
+/* Animated gradient orbs */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: #4a6cf7;
+  top: -200px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: #7c3aed;
+  bottom: -150px;
+  left: -100px;
+  animation-delay: 3s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: #06b6d4;
+  top: 40%;
+  left: 30%;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+/* Typing animation */
+.typing-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4a6cf7;
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  30% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+/* Mood score colors */
+.mood-1,
+.mood-2,
+.mood-3 {
+  background: #ef4444;
+}
+
+.mood-4,
+.mood-5,
+.mood-6 {
+  background: #f59e0b;
+}
+
+.mood-7,
+.mood-8 {
+  background: #22c55e;
+}
+
+.mood-9,
+.mood-10 {
+  background: #4a6cf7;
+}
+
+/* Fade animation */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
