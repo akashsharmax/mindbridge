@@ -28,7 +28,7 @@
 **MindBridge Solution:**
 A personal AI-powered journal + therapist companion that:
 - Lets you write freely without judgment
-- Uses Claude AI to understand your emotions and give real insights
+- Uses Gemini Ai to understand your emotions and give real insights
 - Tracks your mood over weeks so you see your own patterns
 - Detects if you're in crisis and quietly alerts your trusted contacts
 - Feels like talking to a compassionate, knowledgeable friend
